@@ -6,6 +6,10 @@ namespace _Scripts
 {
     public class ObjectPool : MonoBehaviour
     {
+        [SerializeField] private string sampleString;
+        private string _sampleString;
+
+
         [HideInInspector]public List<GameObject> PoolList;
         GameObject _poolPrefab;
         private void Awakes()

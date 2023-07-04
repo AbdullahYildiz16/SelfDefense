@@ -6,28 +6,18 @@ namespace _Scripts.UI
 {
     public class GameTime : MonoBehaviour
     {
+        [SerializeField] private TMP_Text _text;
         [SerializeField] int timeLimit;
-        [SerializeField] GameObject winPanel;
-        TMP_Text _text;
+        [SerializeField] private GameObject winPanel;
         int _currentSeconds;
         int _currentMinutes;
-        int _minusTime;
-        float _lastTime;
-        #region Singleton
-        public static GameTime Instance;
-        private void Awake()
-        {
-            Instance = this;
-        }
-        #endregion
         private void Start()
         {
-            _lastTime = PlayerPrefs.GetFloat("last_time", 0);
             _currentMinutes = (timeLimit / 60);
             _currentSeconds = timeLimit -(60*_currentMinutes);
-            
-            _text = GetComponent<TMP_Text>();
+            StartCoroutine(Timer(timeLimit));
         }
+        /*
         private void FixedUpdate()
         {
             if (Time.time -(_minusTime + _lastTime)  >= 1 )
@@ -42,13 +32,33 @@ namespace _Scripts.UI
                     }
                     else
                     {
-                        PlayerPrefs.SetInt("gold", Money.Instance.GetGold());
-                        StartCoroutine(Win());
+                        
                     }
                     
                 }
                 _text.text = _currentMinutes + ":" + (_currentSeconds - _minusTime);
             }
+        }*/
+        
+        IEnumerator Timer(int _seconds)
+        {
+            for (int i = 0; i< _seconds; i++)
+            {
+                _text.text = _currentMinutes + ":" + _currentSeconds;
+                yield return new WaitForSeconds(1);
+                _currentSeconds--;
+                if (_currentSeconds < 0)
+                {
+                    _currentMinutes--;
+                    _currentSeconds += 60;
+                    if (_currentMinutes == 0)
+                    {
+                        PlayerPrefs.SetInt("gold", Money.Instance.GetGold());
+                        StartCoroutine(Win());
+                    }
+                }
+            }
+            
         }
         IEnumerator Win()
         {

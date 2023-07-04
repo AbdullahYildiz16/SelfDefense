@@ -413,7 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 50
   cooldownDelay: 15
-  prize: 600
+  prize: 150
   prizeText: {fileID: 634425167}
 --- !u!1 &211187087
 GameObject:
@@ -711,7 +711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1ce59625e6b1a4888fce60862a69ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 20
+  _text: {fileID: 224250380}
+  timeLimit: 5
   winPanel: {fileID: 427489653}
 --- !u!1 &228798077
 GameObject:
@@ -937,6 +938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireFrequency: 2
   CanDiagonalFire: 0
+  IsFastShot: 0
   MultipleFireAmount: 0
   bulletPrefab: {fileID: 7440863154931093788, guid: dceb071879b3ff842baf303a8a1dd518,
     type: 3}
@@ -954,6 +956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7066080583227a049b315532c7a4d7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sampleString: 
   PoolList: []
 --- !u!114 &365498180
 MonoBehaviour:
@@ -1347,6 +1350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7066080583227a049b315532c7a4d7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sampleString: 
   PoolList: []
 --- !u!1 &633610409
 GameObject:
@@ -2198,7 +2202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolDownDelay: 10
-  prize: 850
+  prize: 100
   prizeText: {fileID: 1413074360}
 --- !u!1 &1076376293
 GameObject:
@@ -2754,6 +2758,37 @@ Transform:
   m_Father: {fileID: 100820260}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1370912673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1370912674}
+  m_Layer: 0
+  m_Name: GameTime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1370912674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370912673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1405453549
 GameObject:
   m_ObjectHideFlags: 0
