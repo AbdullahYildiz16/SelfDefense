@@ -1,32 +1,29 @@
 using System.Collections;
 using UnityEngine;
 using _Scripts.Scriptables;
-namespace _Scripts
+using _Scripts.Bullet;
+namespace _Scripts.Character
 {
     public class CharacterFire : MonoBehaviour
     {
-        [SerializeField] ObjectPool bulletPool;
+        [SerializeField] BulletSpawner bulletSpawner;
         [SerializeField] ShootSettingsSO shootSettings;
-        [SerializeField] GameObject bulletPrefab;
         [SerializeField] float ammoSpeed;
         [SerializeField] Transform bulletSpawn;
-        private WaitForSeconds _fireCoolDownWait;
         private int _multpFireCheck;
         private float _currentFireFreq;
         private bool _canFire;
         
         private void Start()
-        {
-            bulletPool.StartPool(bulletPrefab, 10);
-            _fireCoolDownWait = new WaitForSeconds(shootSettings.FireFrequency);
+        {           
+            
             _canFire = true;
             _currentFireFreq = shootSettings.FireFrequency;
             _multpFireCheck = 0;
         }
         public IEnumerator FireCoolDown()
         {
-
-            yield return _fireCoolDownWait;        
+            yield return new WaitForSeconds(shootSettings.FireFrequency);        
             if (!shootSettings.IsFastShot)
             {
                 shootSettings.FireFrequency = 0.1f;
@@ -62,12 +59,12 @@ namespace _Scripts
         }
         void FireWithAngel(float angle)
         {
-            var _currentBullet = bulletPool.GetFromPool(false);
-            _currentBullet.transform.position = bulletSpawn.transform.position;
-            _currentBullet.transform.rotation = bulletSpawn.transform.rotation;
+            var _currentBullet = bulletSpawner.bulletPool.GetFromPool(false);
+            _currentBullet.gameObject.SetActive(true);
+            _currentBullet.gameObject.transform.position = bulletSpawn.transform.position;
+            _currentBullet.gameObject.transform.rotation = bulletSpawn.transform.rotation;
             var _dir = Quaternion.AngleAxis(angle, Vector3.up) * bulletSpawn.forward;
-            _currentBullet.GetComponent<Rigidbody>().AddForce(_dir* ammoSpeed, ForceMode.Impulse);
-            
+            _currentBullet.rb.AddForce(_dir* ammoSpeed, ForceMode.Impulse);            
         }
         
     }

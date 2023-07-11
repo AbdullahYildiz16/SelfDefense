@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using _Scripts.PowerUp;
 namespace _Scripts.UI
 {
-    public class PowerUpUI : MonoBehaviour
+    public class PassivePuUI : MonoBehaviour
     {
         [SerializeField] PassivePuBase passivePuBase;
         [SerializeField] TMP_Text levelText, priceText;

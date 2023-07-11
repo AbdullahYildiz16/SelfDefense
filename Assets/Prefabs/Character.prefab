@@ -164,6 +164,8 @@ GameObject:
   - component: {fileID: 3277890286310591605}
   - component: {fileID: 3277890286310591604}
   - component: {fileID: 3277890286310591607}
+  - component: {fileID: 2417558255186667967}
+  - component: {fileID: 3277890286846361734}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -254,6 +256,34 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2417558255186667967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3277890286310591601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd5c7a855db381498c8215429537e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterHealth: {fileID: 3277890286673940422}
+  fillImg: {fileID: 3277890285566936173}
+--- !u!114 &3277890286846361734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3277890286310591601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd5c7a855db381498c8215429537e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterHealth: {fileID: 3277890286673940422}
+  fillImg: {fileID: 3277890285566936173}
 --- !u!1 &3277890286673940409
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,14 +298,11 @@ GameObject:
   - component: {fileID: 3277890286673940414}
   - component: {fileID: 3277890286673940418}
   - component: {fileID: 3277890286673940419}
-  - component: {fileID: 3277890286673940417}
   - component: {fileID: 3277890286673940416}
   - component: {fileID: 3277890286673940422}
-  - component: {fileID: 3277890286673940427}
   - component: {fileID: 3277890286673940423}
   - component: {fileID: 3277890286673940420}
   - component: {fileID: 3277890286673940421}
-  - component: {fileID: 3277890286673940426}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -378,7 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4922539a645b0944c965cf4ff9480107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCam: {fileID: 0}
+  _mainCam: {fileID: 2369776233351762047, guid: 8c59377c99b504940bd04462ac38fd86,
+    type: 3}
   speed: 8
 --- !u!114 &3277890286673940419
 MonoBehaviour:
@@ -395,19 +423,6 @@ MonoBehaviour:
   onCharacterFire: {fileID: 11400000, guid: f29e7f6425ee33b4f8cacfd39d58a436, type: 2}
   turningSpeed: 30
   ActiveEnemiesList: []
---- !u!114 &3277890286673940417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3277890286673940409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7066080583227a049b315532c7a4d7b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PoolList: []
 --- !u!114 &3277890286673940416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,10 +435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f419bd5b4e4f44e4caaf98e662d97e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPool: {fileID: 3277890286673940417}
-  shootSettings: {fileID: 11400000, guid: 0c546511d3c2cae4f81164f028b5574f, type: 2}
-  bulletPrefab: {fileID: 7440863154931093788, guid: dceb071879b3ff842baf303a8a1dd518,
+  bulletSpawner: {fileID: 6433674735193815404, guid: d335e9616f3d8114d92ac3ceee44c587,
     type: 3}
+  shootSettings: {fileID: 11400000, guid: 0c546511d3c2cae4f81164f028b5574f, type: 2}
   ammoSpeed: 20
   bulletSpawn: {fileID: 3277890287293326776}
 --- !u!114 &3277890286673940422
@@ -443,21 +457,6 @@ MonoBehaviour:
   health: 100
   onCharacterDamaged: {fileID: 11400000, guid: 5cd6e764820f15542abaa2f6497f06b2, type: 2}
   onCharacterDied: {fileID: 11400000, guid: 98d71306135a2b44d852e560316b7c88, type: 2}
---- !u!114 &3277890286673940427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3277890286673940409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebd5c7a855db381498c8215429537e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterHealth: {fileID: 3277890286673940422}
-  losePanel: {fileID: 0}
-  fillImg: {fileID: 3277890285566936173}
 --- !u!54 &3277890286673940423
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -518,37 +517,9 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3277890286673940427}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: _Scripts.Character.CharacterHealthUI, Assembly-CSharp
         m_MethodName: RefreshHealthBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3277890286673940426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3277890286673940409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf76387a780e8da4685bdda106843640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 98d71306135a2b44d852e560316b7c88, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3277890286673940427}
-        m_TargetAssemblyTypeName: _Scripts.Character.CharacterHealthUI, Assembly-CSharp
-        m_MethodName: Lose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

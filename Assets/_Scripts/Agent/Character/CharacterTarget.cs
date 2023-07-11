@@ -9,18 +9,18 @@ namespace _Scripts
         [SerializeField] GameEvent onCharacterFire;
         [SerializeField] float turningSpeed;
         [HideInInspector] public List<Transform> ActiveEnemiesList;
+        Transform _target;
+        private bool _canRotate = true;
         private void Start()
         {
             List<Transform> ActiveTargetsList = new List<Transform>();
         }
         void FixedUpdate()
         {
-            Transform target = GetNearestTarget(10);
-            if (target != null)
-            {
-                RotateTowards(gameObject.transform, target.position, turningSpeed);
-                onCharacterFire.Raise();
-            }
+            _target = _canRotate == true ? GetNearestTarget(10) : null;
+            if (!_target) return;
+            RotateTowards(gameObject.transform, _target.position, turningSpeed);
+            onCharacterFire.Raise();
 
         }
         private Transform GetNearestTarget(float limit)

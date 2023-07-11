@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 7598047982117275683}
   - component: {fileID: 4646759238602872619}
   - component: {fileID: 4646759238602872617}
-  - component: {fileID: 5311673495154958342}
   - component: {fileID: 5794541462305955841}
   - component: {fileID: 4493234897984546116}
   - component: {fileID: 3073724665110420486}
@@ -375,22 +374,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f87e7c5cd3c81444da800a4081c414d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 3277890286673940409, guid: 444c3da67b7bf4549b5c1ce712463b40,
-    type: 3}
---- !u!114 &5311673495154958342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4646759238602872622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b12b8d8a3a5da414ca8998c36c4c2536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   enemyHealth: {fileID: 5794541462305955841}
-  fillImg: {fileID: 8677714962969431101}
+  character: {fileID: 0}
+  _agent: {fileID: 7598047982117275683}
+  enemySpawn: {fileID: 9025123401757029078, guid: 01a0d9c975c56c742ba169411450b23a,
+    type: 3}
 --- !u!114 &5794541462305955841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,8 +394,6 @@ MonoBehaviour:
   healAmount: 0.1
   damageAmount: 35
   health: 100
-  enemySpawner: {fileID: 9138013206787836626, guid: 2000565597e4dbd4faa1ef038de8129d,
-    type: 3}
   onEnemyHasDamaged: {fileID: 11400000, guid: 5e78b83441d6e4d4b9e1d4773fd7cfbe, type: 2}
   onEnemyDied: {fileID: 11400000, guid: cf6275b3b2235d14c92f59af4c8068ff, type: 2}
   money: {fileID: 11400000, guid: f83f292640778cf41b33e73c4a685f3d, type: 2}
@@ -456,7 +442,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5311673495154958342}
+      - m_Target: {fileID: 8439885474339678725}
         m_TargetAssemblyTypeName: _Scripts.Enemy.EnemyHealthUI, Assembly-CSharp
         m_MethodName: RefreshHealthBar
         m_Mode: 1
@@ -480,6 +466,7 @@ GameObject:
   - component: {fileID: 9218985472119506161}
   - component: {fileID: 2296980578333673766}
   - component: {fileID: 9174844837429282771}
+  - component: {fileID: 8439885474339678725}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -571,3 +558,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8439885474339678725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248837234233752292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12b8d8a3a5da414ca8998c36c4c2536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 5794541462305955841}
+  fillImg: {fileID: 8677714962969431101}

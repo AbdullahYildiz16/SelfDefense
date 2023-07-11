@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using _Scripts.Scriptables;
 
@@ -5,7 +7,7 @@ namespace _Scripts.Enemy
 {
     public class EnemyHealth : AgentHealthBase
     {
-        [SerializeField] EnemySpawn enemySpawner;
+        public Action onEnemyDeactivate;
         [SerializeField] GameEvent onEnemyHasDamaged;
         [SerializeField] GameEvent onEnemyDied;
         [SerializeField] EconomySO money;
@@ -18,8 +20,8 @@ namespace _Scripts.Enemy
         public override void Died()
         {
             money.Value += dieMoney;
-            enemySpawner.EnemyPool.AddToPool(gameObject);
-           // onEnemyDied.Raise();
+            onEnemyDeactivate.Invoke();           
+            // onEnemyDied.Raise();
         }
         
     }

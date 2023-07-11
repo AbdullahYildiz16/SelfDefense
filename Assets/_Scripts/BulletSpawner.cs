@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletSpawner : MonoBehaviour
+namespace _Scripts.Bullet
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BulletSpawner : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [HideInInspector] public ObjectPool<BulletCode> bulletPool = new ObjectPool<BulletCode>();
+        [SerializeField] BulletCode bulletCode;
+        [SerializeField] int startAmount;  
+        private void Start()
+        {
+            bulletPool.StartPool(bulletCode, startAmount);
+        }
     }
 }

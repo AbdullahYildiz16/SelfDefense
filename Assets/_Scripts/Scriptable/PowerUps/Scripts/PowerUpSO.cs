@@ -5,6 +5,8 @@ namespace _Scripts.Scriptables
     public class PowerUpSO : ScriptableObject
     {
         public int Price;
+        public ShootSettingsSO shootSettings;
+        public EconomySO money;
     }
 }
 

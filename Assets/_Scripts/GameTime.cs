@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 namespace _Scripts
 {
     public class GameTime : MonoBehaviour
@@ -8,7 +7,7 @@ namespace _Scripts
         [SerializeField] GameEvent onTimeChanged;
         [SerializeField] GameEvent onTimeFinished;
         [SerializeField] int timeLimit;
-        [SerializeField] private GameObject winPanel;
+        
         [HideInInspector] public int currentSeconds;
         [HideInInspector] public int currentMinutes;
         private void Start()
@@ -22,18 +21,13 @@ namespace _Scripts
             for (int i = 0; i< _seconds; i++)
             {
                 
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(1f);
                 onTimeChanged.Raise();
             }
             onTimeFinished.Raise();
         }
-        IEnumerator WinPanel()
-        {
-            winPanel.SetActive(true);
-            yield return new WaitForSeconds(3f);
-            SceneManager.LoadScene(1);
-        }
-        public void WinGame() => StartCoroutine(WinPanel());
+
+        
         public void RefreshTimer()
         {
             currentSeconds--;

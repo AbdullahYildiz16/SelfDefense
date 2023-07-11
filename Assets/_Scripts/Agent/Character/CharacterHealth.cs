@@ -6,14 +6,7 @@ namespace _Scripts
     {
         [SerializeField] GameEvent onCharacterDamaged;
         [SerializeField] GameEvent onCharacterDied;
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent<IHittable>(out IHittable hittable))
-            {
-                hittable.OnHit();
-                other.gameObject.SetActive(false);
-            }
-        }
+
         public override void TakeDamage()
         {
             base.TakeDamage();

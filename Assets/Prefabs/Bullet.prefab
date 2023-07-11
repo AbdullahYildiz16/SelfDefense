@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7440863154931093789}
   - component: {fileID: -4048610791671546799}
   - component: {fileID: 8782829642460986051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Ammo
   m_Icon: {fileID: 0}
@@ -127,4 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57430af01c73a9c4b8053d7fac07ed77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpawner: {fileID: 6433674735193815404, guid: d335e9616f3d8114d92ac3ceee44c587,
+    type: 3}
   rb: {fileID: -4048610791671546799}
