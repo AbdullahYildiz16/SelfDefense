@@ -1,70 +1,49 @@
 using System.Collections;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
-namespace _Scripts.UI
+namespace _Scripts
 {
     public class GameTime : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _text;
+        [SerializeField] GameEvent onTimeChanged;
+        [SerializeField] GameEvent onTimeFinished;
         [SerializeField] int timeLimit;
         [SerializeField] private GameObject winPanel;
-        int _currentSeconds;
-        int _currentMinutes;
+        [HideInInspector] public int currentSeconds;
+        [HideInInspector] public int currentMinutes;
         private void Start()
         {
-            _currentMinutes = (timeLimit / 60);
-            _currentSeconds = timeLimit -(60*_currentMinutes);
+            currentMinutes = (timeLimit / 60);
+            currentSeconds = timeLimit -(60*currentMinutes);
             StartCoroutine(Timer(timeLimit));
-        }
-        /*
-        private void FixedUpdate()
-        {
-            if (Time.time -(_minusTime + _lastTime)  >= 1 )
-            {
-                _minusTime++;
-                if ((_currentSeconds - _minusTime) <= 0)
-                {
-                    if (_currentMinutes != 0)
-                    {
-                        _currentMinutes--;
-                        _currentSeconds += 60;
-                    }
-                    else
-                    {
-                        
-                    }
-                    
-                }
-                _text.text = _currentMinutes + ":" + (_currentSeconds - _minusTime);
-            }
-        }*/
-        
+        }       
         IEnumerator Timer(int _seconds)
         {
             for (int i = 0; i< _seconds; i++)
             {
-                _text.text = _currentMinutes + ":" + _currentSeconds;
+                
                 yield return new WaitForSeconds(1);
-                _currentSeconds--;
-                if (_currentSeconds < 0)
-                {
-                    _currentMinutes--;
-                    _currentSeconds += 60;
-                    if (_currentMinutes == 0)
-                    {
-                        PlayerPrefs.SetInt("gold", Money.Instance.GetGold());
-                        StartCoroutine(Win());
-                    }
-                }
+                onTimeChanged.Raise();
             }
-            
+            onTimeFinished.Raise();
         }
-        IEnumerator Win()
+        IEnumerator WinPanel()
         {
             winPanel.SetActive(true);
             yield return new WaitForSeconds(3f);
             SceneManager.LoadScene(1);
+        }
+        public void WinGame() => StartCoroutine(WinPanel());
+        public void RefreshTimer()
+        {
+            currentSeconds--;
+            if (currentSeconds < 0)
+            {
+                currentMinutes--;
+                currentSeconds += 60;
+                
+            }
+            
         }
     }
 }

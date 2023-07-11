@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,13 +5,9 @@ namespace _Scripts
 {
     public class ObjectPool : MonoBehaviour
     {
-        [SerializeField] private string sampleString;
-        private string _sampleString;
-
-
         [HideInInspector]public List<GameObject> PoolList;
         GameObject _poolPrefab;
-        private void Awakes()
+        private void Awake()
         {
             PoolList = new List<GameObject>();
         }

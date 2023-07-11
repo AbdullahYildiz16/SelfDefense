@@ -1214,6 +1214,7 @@ GameObject:
   - component: {fileID: 793601970}
   - component: {fileID: 793601969}
   - component: {fileID: 793601968}
+  - component: {fileID: 793601972}
   - component: {fileID: 793601971}
   m_Layer: 5
   m_Name: Multiple Shots
@@ -1339,9 +1340,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a772c2e5837ed034dbf604fbf23746a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passivePuSO: {fileID: 11400000, guid: 3fd38856f098324468079cdcdb5d2648, type: 2}
+  passivePuSO: {fileID: 11400000, guid: 0e2bef54a4841d64da411e767b2ac624, type: 2}
+--- !u!114 &793601972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793601966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68241b7ca624e34cacffcfe9af0f56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passivePuBase: {fileID: 793601971}
   levelText: {fileID: 29439854}
   priceText: {fileID: 1753732455}
+  btn: {fileID: 793601968}
 --- !u!1 &866556513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,6 +1989,7 @@ GameObject:
   - component: {fileID: 1484405395}
   - component: {fileID: 1484405394}
   - component: {fileID: 1484405397}
+  - component: {fileID: 1484405398}
   m_Layer: 5
   m_Name: DecreaseFreqBtn
   m_TagString: Untagged
@@ -2095,12 +2111,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1484405392}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68241b7ca624e34cacffcfe9af0f56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passivePuBase: {fileID: 1484405398}
+  levelText: {fileID: 84578019}
+  priceText: {fileID: 52393925}
+  btn: {fileID: 1484405394}
+--- !u!114 &1484405398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484405392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c647a0fe54d6244d8ead3909b4f57ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passivePuSO: {fileID: 11400000, guid: 6f2cf77bb12bac9458d1aca3f821051a, type: 2}
-  levelText: {fileID: 84578019}
-  priceText: {fileID: 52393925}
+  passivePuSO: {fileID: 11400000, guid: 771075551ba55df40877846368434a3e, type: 2}
 --- !u!1 &1571754217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,6 +2266,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571754217}
   m_CullTransparentMesh: 1
+--- !u!1 &1597054691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1597054694}
+  m_Layer: 0
+  m_Name: MoneyObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1597054694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597054691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 345, y: 318.14874, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1632114313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,9 +2713,8 @@ GameObject:
   - component: {fileID: 1812746768}
   - component: {fileID: 1812746770}
   - component: {fileID: 1812746769}
-  - component: {fileID: 1812746771}
   m_Layer: 5
-  m_Name: GoldText
+  m_Name: MoneyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2777,18 +2837,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812746767}
   m_CullTransparentMesh: 1
---- !u!114 &1812746771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1812746767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb03c2daa2545f64d8840a188898fac3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1813340830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,6 +2849,7 @@ GameObject:
   - component: {fileID: 1813340835}
   - component: {fileID: 1813340834}
   - component: {fileID: 1813340833}
+  - component: {fileID: 1813340837}
   - component: {fileID: 1813340836}
   m_Layer: 5
   m_Name: AddDiagShotBtn
@@ -2926,9 +2975,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7dc0488456c01b448759fb899181586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passivePuSO: {fileID: 11400000, guid: 96d12acbc59d91a4cb177258ae72f9aa, type: 2}
+  passivePuSO: {fileID: 11400000, guid: 603bbc89605f421498324ab272799cf2, type: 2}
+--- !u!114 &1813340837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813340830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68241b7ca624e34cacffcfe9af0f56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passivePuBase: {fileID: 1813340836}
   levelText: {fileID: 1120521062}
   priceText: {fileID: 866556515}
+  btn: {fileID: 1813340833}
 --- !u!1 &1952064480
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,6 +3004,7 @@ GameObject:
   - component: {fileID: 1952064484}
   - component: {fileID: 1952064483}
   - component: {fileID: 1952064482}
+  - component: {fileID: 1952064486}
   - component: {fileID: 1952064485}
   m_Layer: 5
   m_Name: IncrDamageBtn
@@ -3066,9 +3130,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66cc68e6d5ed3c48932aa2da143f17d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passivePuSO: {fileID: 11400000, guid: 5dd5a460b9e466c4996334db14dae191, type: 2}
+  passivePuSO: {fileID: 11400000, guid: 351122eb37685e84bbb640a9e3ba5634, type: 2}
+--- !u!114 &1952064486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952064480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68241b7ca624e34cacffcfe9af0f56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passivePuBase: {fileID: 1952064485}
   levelText: {fileID: 1210419427}
   priceText: {fileID: 158113186}
+  btn: {fileID: 1952064482}
 --- !u!1 &2083571121
 GameObject:
   m_ObjectHideFlags: 0

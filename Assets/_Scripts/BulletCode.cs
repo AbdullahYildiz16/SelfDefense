@@ -5,38 +5,25 @@ namespace _Scripts
 {
     public class BulletCode : MonoBehaviour
     {
-        public float FireDamage;
-        #region Singleton
-        public static BulletCode Instance;
-        private void Awake()
-        {
-            Instance = this;
-        }
-        #endregion
-        private void Start()
-        {
-            FireDamage = PlayerPrefs.GetInt("fire_damage", 30);
-            StartCoroutine(DeactiveBullet());
-        }
+        [SerializeField] Rigidbody rb;
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Enemy"))
+            if (other.TryGetComponent<IHittable>(out IHittable hittable))
             {
-                other.GetComponent<EnemyHealth>().TakeDamage(FireDamage);
-                gameObject.SetActive(false);
-
+                hittable.OnHit();
+                
             }
             
         }
-        IEnumerator DeactiveBullet()
+        private void OnDisable()
         {
-            yield return new WaitForSeconds(3);
-            gameObject.SetActive(false);
+            rb.velocity = Vector3.zero;
         }
-        public void MultpFireDamage(float multpAmount)
+        
+        public void DestroyBullet()
         {
-            FireDamage *= multpAmount;
-            PlayerPrefs.SetFloat("fire_damage", FireDamage);
+            gameObject.SetActive(false);
+            //eventi tetikle ve add to pool
         }
     }
 }
