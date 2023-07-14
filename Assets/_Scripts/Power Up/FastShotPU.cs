@@ -10,18 +10,18 @@ namespace _Scripts.PowerUp
         void OnFastShotBtnClicked()
         {
             if (IsCoolingDown) return;                                      
-            if (!activePuSO.money.BuyIfCanAfford(activePuSO.Price)) return;
+            if (!activePuSO.money.BuyIfCanAfford(activePuSO.activePuData.Price)) return;
             StartCoolDown();
             activePuUI.StartCoolDownUI();
             StartCoroutine(FastShot());
         }
         IEnumerator FastShot()
         {
-            float _startFreq = activePuSO.shootSettings.FireFrequency;
-            activePuSO.shootSettings.FireFrequency = 0.1f;
+            float _startFreq = activePuSO.shootSettings.ShootSettingsData.FireFrequency;
+            activePuSO.shootSettings.ShootSettingsData.FireFrequency = 0.1f;
             activePuSO.shootSettings.IsFastShot = true;
             yield return fastShotTime;
-            activePuSO.shootSettings.FireFrequency = _startFreq;
+            activePuSO.shootSettings.ShootSettingsData.FireFrequency = _startFreq;
             activePuSO.shootSettings.IsFastShot = false;
         }
         

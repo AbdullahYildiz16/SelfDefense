@@ -1,46 +1,33 @@
 using UnityEngine;
-
+using _Scripts.Data;
 namespace _Scripts.Scriptables
 {
     [CreateAssetMenu(menuName ="Economy")]
-    public class EconomySO : ScriptableObject
+    public class EconomySO : ScriptableObject, ISavable
     {
-        private int value;
-        [SerializeField] GameEvent onMoneyIncreased;
-        [SerializeField] GameEvent onMoneyDecreased;
-        public int Value
-        {
-            get
-            {
-                return value;
-            }
-            set
-            {
-                if (value > this.Value)
-                {
-                    onMoneyIncreased.Raise();
-                }
-                else if (value < this.Value)
-                {
-                    onMoneyDecreased.Raise();
-                }
-                this.value = value;
-
-            }
-        }
-
+        public EconomyData EconomyData;
         public bool BuyIfCanAfford(int prize)
-        {
-            if (prize > Value)
+        {           
+            if (prize > EconomyData.Money)
             {
                 return false;
             }
             else
             {
-                Value -= prize;
+                EconomyData.Money -= prize;
                 return true;
             }
         }
+
+        public void Load()
+        {
+            EconomyData.Load();
+        }
+
+        public void Save()
+        {
+            EconomyData.Save();
+        }        
     }
 }
 

@@ -18,6 +18,7 @@ namespace _Scripts
         {
             onCharacterDied.Raise();
         }
+        public void DestroyCharacter() => gameObject.SetActive(false);
     }
 }
 

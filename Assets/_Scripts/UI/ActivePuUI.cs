@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -22,12 +20,12 @@ namespace _Scripts.UI
         }
         void InitUI()
         {
-            priceText.text = activePuBase.activePuSO.Price.ToString();
+            priceText.text = activePuBase.activePuSO.activePuData.Price.ToString();
             cooldownImg.fillAmount = 1;
         }
         public void UpdateUI()
         { 
-            if(activePuBase.IsCoolingDown) cooldownImg.fillAmount += 1 / activePuBase.activePuSO.CoolDownDelay;
+            if(activePuBase.IsCoolingDown) cooldownImg.fillAmount += 1 / activePuBase.activePuSO.activePuData.CoolDownDelay;
         }
         public void StartCoolDownUI()
         {

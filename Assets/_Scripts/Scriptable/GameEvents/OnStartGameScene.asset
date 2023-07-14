@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cbb039d4594a14d8bb1db86d1e70ec, type: 3}
-  m_Name: FastShotSO
+  m_Script: {fileID: 11500000, guid: 5e341182f1afc364b87f4c7b1738212b, type: 3}
+  m_Name: OnStartGameScene
   m_EditorClassIdentifier: 
-  Price: 300
-  shootSettings: {fileID: 11400000, guid: 0c546511d3c2cae4f81164f028b5574f, type: 2}
-  money: {fileID: 11400000, guid: f83f292640778cf41b33e73c4a685f3d, type: 2}
-  CoolDownDelay: 6

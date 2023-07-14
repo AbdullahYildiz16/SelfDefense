@@ -18,7 +18,7 @@ namespace _Scripts.UI
         }
         public void UpdateUI()
         {
-            if (passivePuBase.passivePuSO.CurrentLevel == passivePuBase.passivePuSO.MaxLevel)
+            if (passivePuBase.passivePuSO.passivePuData.CurrentLevel == passivePuBase.passivePuSO.passivePuData.MaxLevel)
             {
                 levelText.text = "Max Level";
                 priceText.text = "Max";
@@ -27,8 +27,8 @@ namespace _Scripts.UI
             }
             else
             {
-                levelText.text = "Level " + passivePuBase.passivePuSO.CurrentLevel;
-                priceText.text = passivePuBase.passivePuSO.Price + "";
+                levelText.text = "Level " + passivePuBase.passivePuSO.passivePuData.CurrentLevel;
+                priceText.text = passivePuBase.passivePuSO.passivePuData.Price + "";
             }
         }
     }

@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c69de41f890004889fcfd24e450471, type: 3}
   m_Name: IncreaseDamageSO
   m_EditorClassIdentifier: 
-  Price: 30
-  PriceIncrease: 20
-  MaxLevel: 10
-  CurrentLevel: 0
   shootSettings: {fileID: 11400000, guid: 0c546511d3c2cae4f81164f028b5574f, type: 2}
   money: {fileID: 11400000, guid: f83f292640778cf41b33e73c4a685f3d, type: 2}
+  passivePuData:
+    fileName: IncreaseDamageData
+    Price: 50
+    PriceIncrease: 100
+    MaxLevel: 40
+    CurrentLevel: 0

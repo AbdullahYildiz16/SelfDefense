@@ -5,9 +5,9 @@ namespace _Scripts.PowerUp
     {
         public void IncrDamageClicked()
         {
-            if (passivePuSO.money.BuyIfCanAfford(passivePuSO.Price))
+            if (passivePuSO.money.BuyIfCanAfford(passivePuSO.passivePuData.Price))
             {
-                passivePuSO.shootSettings.CharacterDamage *= 1.1f;
+                passivePuSO.shootSettings.ShootSettingsData.CharacterDamage *= 1.1f;
                 passivePuSO.IncrLevelAndPrice();
             }
         }

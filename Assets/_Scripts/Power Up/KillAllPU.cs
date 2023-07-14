@@ -1,78 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using _Scripts.UI;
 
-namespace _Scripts.UI
+namespace _Scripts.PowerUp
 {
-    public class KillAllPU : MonoBehaviour
+    public class KillAllPU : ActivePuBase
     {
-        [SerializeField] int damageAmount;
-        [SerializeField] int cooldownDelay;
-        [SerializeField] int prize;
-        [SerializeField] TMP_Text prizeText;
-        Button _btn;
-        Image _cooldownImg;
-        bool _isReady;
-        bool _canCooldown;
-        float _currentTime;
-        void Start()
+        [SerializeField] CharacterTarget characterTarget;
+        [SerializeField] ActivePuUI activePuUI;
+        void OnKillAllBtnClicked()
         {
-            _btn = GetComponent<Button>();
-            _cooldownImg = GetComponent<Image>();
-            prizeText.text = prize + "";
-            _btn.onClick.AddListener(OnKillAllBtnClicked);
-            _isReady = true;
-        }
-        public void OnKillAllBtnClicked()
-        {
-            if (_isReady)
+            if (IsCoolingDown) return;
+            if (!activePuSO.money.BuyIfCanAfford(activePuSO.activePuData.Price)) return;
+            StartCoolDown();
+            activePuUI.StartCoolDownUI();
+            characterTarget.DrawEnemyRadius(25f);
+            var _activeEnemies = characterTarget.ActiveEnemiesList;
+            foreach (var enemy in _activeEnemies)
             {
-                //if (Money.Instance.BuyIfCanAfford(prize))
-                //{
-                //    var _activeEnemies = CharacterTarget.Instance.ActiveEnemiesList;
-                //    foreach (var i in _activeEnemies)
-                //    {
-                //        i.GetComponent<EnemyHealth>().TakeDamage(damageAmount);
+                if(enemy.TryGetComponent<IHittable>(out IHittable hittable))
+                {
+                    hittable.OnHit();
+                }                    
+            }           
+        }
+       
 
-                //    }
-                //    _isReady = false;
-                //    _btn.interactable = false;
-                //    _canCooldown = true;
-                //}
-                
-            }
-            
-        }
-        private void FixedUpdate()
+        public override void PowerUpAction()
         {
-            if (_canCooldown)
-            {
-                CoolDown();
-            }
-            else
-            {
-                _currentTime = Time.time;
-            }
+            OnKillAllBtnClicked();
         }
-        void CoolDown()
-        {
-            if (Time.time - _currentTime >= cooldownDelay)
-            {
-                _currentTime = Time.time;
-                _canCooldown = false;
-                _isReady = true;
-                _btn.interactable = true;
-                _cooldownImg.fillAmount = 1;
-            }
-            else
-            {
-                _cooldownImg.fillAmount = (Time.time - _currentTime) / cooldownDelay;
-            }
-            
-        }
-        
     }
 }
 

@@ -6,26 +6,29 @@ namespace _Scripts
 {
     public class CharacterTarget : MonoBehaviour
     {
+        [SerializeField] LayerMask enemyLayer;
         [SerializeField] GameEvent onCharacterFire;
         [SerializeField] float turningSpeed;
+        [SerializeField] float targetRadius;
         [HideInInspector] public List<Transform> ActiveEnemiesList;
         Transform _target;
-        private bool _canRotate = true;
+        private Collider[] enemyColliders;
         private void Start()
         {
             List<Transform> ActiveTargetsList = new List<Transform>();
         }
         void FixedUpdate()
         {
-            _target = _canRotate == true ? GetNearestTarget(10) : null;
+            DrawEnemyRadius(targetRadius);
+            _target = GetNearestTarget(targetRadius);            
             if (!_target) return;
             RotateTowards(gameObject.transform, _target.position, turningSpeed);
             onCharacterFire.Raise();
+            ResetEnemyRadius();
 
         }
         private Transform GetNearestTarget(float limit)
-        {
-            
+        {           
             Transform nearestTransform = null;
             float _nearestDistance = float.MaxValue;
             foreach (var target in ActiveEnemiesList)
@@ -50,6 +53,18 @@ namespace _Scripts
             
             Quaternion _lookRotation = Quaternion.LookRotation((targetPos - selfTransform.position).normalized);
             selfTransform.rotation = Quaternion.Slerp(selfTransform.rotation, _lookRotation, this.turningSpeed * Time.deltaTime);
+        }
+        public void DrawEnemyRadius(float radius)
+        {
+            enemyColliders =  Physics.OverlapSphere(transform.position, radius, enemyLayer);
+            foreach (var enemy in enemyColliders)
+            {
+                ActiveEnemiesList.Add(enemy.transform);
+            }
+        }
+        public void ResetEnemyRadius()
+        {
+            ActiveEnemiesList.Clear();
         }
        
     }

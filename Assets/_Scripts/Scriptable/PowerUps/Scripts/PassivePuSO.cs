@@ -1,18 +1,26 @@
 using UnityEngine;
-
+using _Scripts.Data;
 namespace _Scripts.Scriptables
 {
     [CreateAssetMenu(menuName = "Skills/PowerUp/Passive")]
-    public class PassivePuSO : PowerUpSO
+    public class PassivePuSO : PowerUpSO,ISavable
     {
-        public int PriceIncrease;
-        public int MaxLevel;
-        public int CurrentLevel;
+        public PassivePuData passivePuData;
         public void IncrLevelAndPrice()
         {
-            Price += PriceIncrease;
-            CurrentLevel++;
+            passivePuData.Price += passivePuData.PriceIncrease;
+            passivePuData.CurrentLevel++;
 
-        }      
+        }
+
+        public void Load()
+        {
+            passivePuData.Load();
+        }
+
+        public void Save()
+        {
+            passivePuData.Save();
+        }
     }
 }

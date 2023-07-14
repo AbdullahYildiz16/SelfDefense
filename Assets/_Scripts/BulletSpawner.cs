@@ -1,5 +1,4 @@
 using UnityEngine;
-
 namespace _Scripts.Bullet
 {
     public class BulletSpawner : MonoBehaviour

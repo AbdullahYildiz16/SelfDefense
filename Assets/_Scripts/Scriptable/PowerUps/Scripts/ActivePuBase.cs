@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using _Scripts.Scriptables;
 
@@ -12,7 +10,7 @@ namespace _Scripts.PowerUp
         public bool IsCoolingDown;
         private void Start()
         {
-            coolDownSeconds = activePuSO.CoolDownDelay;
+            coolDownSeconds = activePuSO.activePuData.CoolDownDelay;
         }
         public virtual void RefreshCoolDown()
         {
@@ -23,7 +21,7 @@ namespace _Scripts.PowerUp
         public abstract void PowerUpAction();
         public virtual void StartCoolDown()
         {
-            coolDownSeconds = activePuSO.CoolDownDelay;
+            coolDownSeconds = activePuSO.activePuData.CoolDownDelay;
             IsCoolingDown = true;
         }
         public virtual void EndCoolDown()

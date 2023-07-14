@@ -4,9 +4,9 @@ namespace _Scripts.PowerUp
     {
         public void MultpShotClicked()
         {
-            if (passivePuSO.money.BuyIfCanAfford(passivePuSO.Price))
+            if (passivePuSO.money.BuyIfCanAfford(passivePuSO.passivePuData.Price))
             {
-                passivePuSO.shootSettings.MultipleFire++;
+                passivePuSO.shootSettings.ShootSettingsData.MultipleFire++;
                 passivePuSO.IncrLevelAndPrice();
             }
         }

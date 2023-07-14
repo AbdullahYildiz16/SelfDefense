@@ -30,7 +30,7 @@ namespace _Scripts.Enemy
                 _currentObject.InitTarget(character);
                 _currentObject.gameObject.SetActive(true);              
                 _currentObject.gameObject.transform.position = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
-                characterTarget.ActiveEnemiesList.Add(_currentObject.gameObject.transform);
+
                 yield return new WaitForSeconds(spawnDuration);
             }         
         }
@@ -50,7 +50,7 @@ namespace _Scripts.Enemy
         public void OnEnemyDeactivated(EnemyMove enemyMove)
         {
             EnemyPool.AddToPool(enemyMove);
-            characterTarget.ActiveEnemiesList.Remove(transform);
+            if(characterTarget.ActiveEnemiesList.Contains(transform)) characterTarget.ActiveEnemiesList.Remove(transform);
             enemyMove.gameObject.SetActive(false);
         }
     }

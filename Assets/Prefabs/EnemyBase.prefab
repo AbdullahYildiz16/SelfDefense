@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3640256843882131110}
   - component: {fileID: 192681118853492311}
   - component: {fileID: 8677714962969431101}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1598647785013399672}
   - component: {fileID: 3728553267711295528}
   - component: {fileID: 5946348619953476904}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FillBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 4646759238500647546}
   - component: {fileID: 4646759238500647540}
   - component: {fileID: 4646759238500647541}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 5794541462305955841}
   - component: {fileID: 4493234897984546116}
   - component: {fileID: 3073724665110420486}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyBase
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ MonoBehaviour:
   health: 100
   onEnemyHasDamaged: {fileID: 11400000, guid: 5e78b83441d6e4d4b9e1d4773fd7cfbe, type: 2}
   onEnemyDied: {fileID: 11400000, guid: cf6275b3b2235d14c92f59af4c8068ff, type: 2}
-  money: {fileID: 11400000, guid: f83f292640778cf41b33e73c4a685f3d, type: 2}
+  economySO: {fileID: 11400000, guid: f83f292640778cf41b33e73c4a685f3d, type: 2}
   dieMoney: 100
 --- !u!114 &4493234897984546116
 MonoBehaviour:
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 2296980578333673766}
   - component: {fileID: 9174844837429282771}
   - component: {fileID: 8439885474339678725}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c48380ceeb994e4f926b16dc3c6acc4, type: 3}
   m_Name: Shoot Settings
   m_EditorClassIdentifier: 
-  FireFrequency: 1.3999999
-  CharacterDamage: 30
-  MultipleFire: 1
+  ShootSettingsData:
+    fileName: ShootSettingsData
+    FireFrequency: 2
+    CharacterDamage: 30
+    MultipleFire: 1
+    CanDiagonalFire: 0
   IsFastShot: 0
-  CanDiagonalFire: 0

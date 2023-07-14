@@ -5,9 +5,9 @@ namespace _Scripts.PowerUp
         
         public void AddDiagShotClicked()
         {
-            if (passivePuSO.money.BuyIfCanAfford(passivePuSO.Price))
+            if (passivePuSO.money.BuyIfCanAfford(passivePuSO.passivePuData.Price))
             {
-                passivePuSO.shootSettings.CanDiagonalFire = true;
+                passivePuSO.shootSettings.ShootSettingsData.CanDiagonalFire = true;
                 passivePuSO.IncrLevelAndPrice();    
             }
         }

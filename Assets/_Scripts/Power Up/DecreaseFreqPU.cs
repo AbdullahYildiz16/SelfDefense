@@ -5,9 +5,9 @@ namespace _Scripts.PowerUp
         
         public void DecreaseFreqClicked()
         {
-            if (passivePuSO.money.BuyIfCanAfford(passivePuSO.Price))
+            if (passivePuSO.money.BuyIfCanAfford(passivePuSO.passivePuData.Price))
             {
-                passivePuSO.shootSettings.FireFrequency -= 0.1f;
+                passivePuSO.shootSettings.ShootSettingsData.FireFrequency -= 0.1f;
                 passivePuSO.IncrLevelAndPrice();
             }
         }

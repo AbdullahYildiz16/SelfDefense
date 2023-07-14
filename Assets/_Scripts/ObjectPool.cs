@@ -21,13 +21,11 @@ namespace _Scripts
             if (PoolList.Count == 0) PoolList.Add(Object.Instantiate(_poolPrefab));
             objInx = isRandom ? Random.Range(0, PoolList.Count - 1) : PoolList.Count - 1;
             var _getObj = PoolList[objInx];
-            //_getObj.SetActive(true);
             PoolList.RemoveAt(objInx);
             return _getObj;
         }
         public void AddToPool(T _addObject)
         {
-            //_addObject.SetActive(false);
             PoolList.Add(_addObject);
         }
        

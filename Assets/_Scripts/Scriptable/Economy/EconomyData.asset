@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76ee40b2889e58940b9952980d4bfde9, type: 3}
-  m_Name: MoneySO
+  m_Name: EconomyData
   m_EditorClassIdentifier: 
-  onMoneyIncreased: {fileID: 11400000, guid: 6fff47a1594bd494492295593db3a52c, type: 2}
-  onMoneyDecreased: {fileID: 11400000, guid: 2838c246238512f42a053bf57aa4ae12, type: 2}
+  EconomyData:
+    fileName: EconomyData
+    onMoneyIncreased: {fileID: 11400000, guid: 6fff47a1594bd494492295593db3a52c, type: 2}
+    onMoneyDecreased: {fileID: 11400000, guid: 2838c246238512f42a053bf57aa4ae12, type: 2}

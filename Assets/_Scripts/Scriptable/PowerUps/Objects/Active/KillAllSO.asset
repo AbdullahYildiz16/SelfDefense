@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cbb039d4594a14d8bb1db86d1e70ec, type: 3}
   m_Name: KillAllSO
   m_EditorClassIdentifier: 
-  Price: 500
   shootSettings: {fileID: 11400000, guid: 0c546511d3c2cae4f81164f028b5574f, type: 2}
   money: {fileID: 11400000, guid: f83f292640778cf41b33e73c4a685f3d, type: 2}
-  CoolDownDelay: 7
+  activePuData:
+    eventListener: {fileID: 1146648734873694262, guid: e0ba9e29c26eb2e46994fa814a526af2,
+      type: 3}
+    fileName: KillAllPuData
+    Price: 300
+    CoolDownDelay: 7

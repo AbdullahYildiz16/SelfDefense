@@ -10,7 +10,7 @@ namespace _Scripts.Enemy
         public Action onEnemyDeactivate;
         [SerializeField] GameEvent onEnemyHasDamaged;
         [SerializeField] GameEvent onEnemyDied;
-        [SerializeField] EconomySO money;
+        [SerializeField] EconomySO economySO;
         [SerializeField] int dieMoney;
         public override void TakeDamage()
         {
@@ -19,7 +19,8 @@ namespace _Scripts.Enemy
         }
         public override void Died()
         {
-            money.Value += dieMoney;
+            economySO.EconomyData.Money += dieMoney;
+            Debug.Log(economySO.EconomyData.Money + "");
             onEnemyDeactivate.Invoke();           
             // onEnemyDied.Raise();
         }

@@ -18,23 +18,23 @@ namespace _Scripts.Character
         {           
             
             _canFire = true;
-            _currentFireFreq = shootSettings.FireFrequency;
+            _currentFireFreq = shootSettings.ShootSettingsData.FireFrequency;
             _multpFireCheck = 0;
         }
         public IEnumerator FireCoolDown()
         {
-            yield return new WaitForSeconds(shootSettings.FireFrequency);        
+            yield return new WaitForSeconds(shootSettings.ShootSettingsData.FireFrequency);        
             if (!shootSettings.IsFastShot)
             {
-                shootSettings.FireFrequency = 0.1f;
-                if (_multpFireCheck < shootSettings.MultipleFire - 1)
+                shootSettings.ShootSettingsData.FireFrequency = 0.1f;
+                if (_multpFireCheck < shootSettings.ShootSettingsData.MultipleFire - 1)
                 {
                     _multpFireCheck++;
                     Fire();
                 }
                 else
                 {
-                    shootSettings.FireFrequency = _currentFireFreq;
+                    shootSettings.ShootSettingsData.FireFrequency = _currentFireFreq;
 
                     _multpFireCheck = 0;
                 }
@@ -49,7 +49,7 @@ namespace _Scripts.Character
             {          
                 _canFire = false;             
                 FireWithAngel(0);
-                if (shootSettings.CanDiagonalFire)
+                if (shootSettings.ShootSettingsData.CanDiagonalFire)
                 {
                     FireWithAngel(30);
                     FireWithAngel(-30);
